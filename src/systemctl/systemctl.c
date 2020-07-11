@@ -418,7 +418,7 @@ static int output_units_list(const UnitInfo *unit_infos, unsigned c) {
         (void) table_set_empty_string(table, "-");
 
         int job_count = 0;
-        for (const UnitInfo *u = unit_infos; unit_infos && u < unit_infos + c; u++) {
+        for (const UnitInfo *u = unit_infos; unit_infos && u - unit_infos < c; u++) {
                 _cleanup_free_ char *j = NULL;
                 const char *on_underline = "", *on_loaded = "", *on_active = "";
                 const char *on_circle = "", *id;
